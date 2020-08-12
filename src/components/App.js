@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 // import loadPlayers from '../data/data';
 import axios from 'axios';
-import Player from './Player'
+import Player from './Players'
 // import Placeholder from './Placeholder';
 
 class App extends Component {
