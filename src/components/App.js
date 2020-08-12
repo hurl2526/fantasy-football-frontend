@@ -22,15 +22,16 @@ class App extends Component {
     );
   };
   async componentDidMount() {
-    await this.loadPlayers();
+    return await this.loadPlayers();
   }
   loadPlayers = () => {
     const url = `http://localhost:3010/positions/Rankings`
     axios.get(url).then((dbPlayers) => {
-      console.log((dbPlayers.data.rankings).slice(0,5))
+      // console.log((dbPlayers.data.rankings).slice(0,5))
       this.setState({
-        players: dbPlayers.data.rankings.slice(0,14),
+        players: dbPlayers.data.rankings.slice(0,15),
       },()=>{
+        console.log(this.state.players)
         console.log(this.state.players[0].fname)
       });
     });
@@ -39,7 +40,8 @@ class App extends Component {
   return (
     <div>
       <div>
-  <Player players={this.state.players}/>
+        hello
+  {/* <Player players={this.state.players}/> */}
       </div>
     </div>
   )
