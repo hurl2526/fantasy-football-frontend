@@ -29,7 +29,7 @@ class App extends Component {
     axios.get(url).then((dbPlayers) => {
       // console.log((dbPlayers.data.rankings).slice(0,5))
       this.setState({
-        players: dbPlayers.data.rankings.slice(0,15),
+        players: dbPlayers.data.rankings.slice(0,14),
       },()=>{
         console.log(this.state.players)
         console.log(this.state.players[0].fname)
@@ -40,8 +40,7 @@ class App extends Component {
   return (
     <div>
       <div>
-        hello
-  {/* <Player players={this.state.players}/> */}
+  <Player players={this.state.players}/>
       </div>
     </div>
   )
