@@ -5,10 +5,16 @@ const SinglePlayer = (props) => {
   return (
     <div
       //key={blog.objectId} if not destructuring
-      className='ui card'
-      style={{ width: '75%', padding: '20px' }}
+      // className='ui card'
+      // style={{ width: '75%', padding: '20px' }}
     >
-      <div className='content'>
+      <tr>
+  <td>{overallRank}</td>
+      <td>{displayName}</td>
+      <td>{position}</td>
+      <td>{team}</td>
+    </tr>
+      {/* <div className='content'>
         <div className='Name'>{displayName}</div>
         <br />
         <div className='meta'>Position: {position}</div>
@@ -19,7 +25,7 @@ const SinglePlayer = (props) => {
         <br />
         <div className='meta'>Team: {team}</div>
         <hr />
-      </div>
+      </div> */}
       {/* <div>
         <Button
           className='ui primary button'
