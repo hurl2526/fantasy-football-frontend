@@ -1,16 +1,18 @@
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
 // import loadPlayers from '../data/data';
 import axios from 'axios';
-import Player from './Players'
+import Player from './Players';
+import News from './News';
+import Modal from './Modal';
 // import Placeholder from './Placeholder';
 
 class App extends Component {
-  state={
-    players:  [],
+  state = {
+    players: [],
     searchTerm: '',
     toggle: true,
     player: {},
-  }
+  };
   handleChange = (event) => {
     this.setState(
       {
@@ -25,25 +27,34 @@ class App extends Component {
     return await this.loadPlayers();
   }
   loadPlayers = () => {
-    const url = `http://localhost:3010/positions/Rankings`
+    const url = `http://localhost:3010/positions/Rankings`;
     axios.get(url).then((dbPlayers) => {
       // console.log((dbPlayers.data.rankings).slice(0,5))
-      this.setState({
-        players: dbPlayers.data.rankings.slice(0,20),
-      },()=>{
-        console.log(this.state.players)
-      });
+      this.setState(
+        {
+          players: dbPlayers.data.rankings.slice(0, 20),
+        },
+        () => {
+          console.log(this.state.players);
+        }
+      );
     });
   };
-  render(){
-  return (
-    <div>
+  render() {
+    return (
       <div>
-  <Player players={this.state.players}/>
+        <div>
+          <News players={this.state.players} />
+        </div>
+        <div>
+          <Modal players={this.state.players} />
+        </div>
+        <div>
+          <Player players={this.state.players} />
+        </div>
       </div>
-    </div>
-  )
-}
+    );
+  }
 }
 
 export default App;
