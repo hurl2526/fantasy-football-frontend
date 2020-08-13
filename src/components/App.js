@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Player from './Players';
 import News from './News';
-import Modal from './Modal';
+// import Modal from './Modal';
 // import Placeholder from './Placeholder';
 
 class App extends Component {
@@ -45,9 +45,6 @@ class App extends Component {
       <div>
         <div>
           <News players={this.state.players} />
-        </div>
-        <div>
-          <Modal players={this.state.players} />
         </div>
         <div>
           <Player players={this.state.players} />
