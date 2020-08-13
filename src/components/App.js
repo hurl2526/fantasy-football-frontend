@@ -27,7 +27,6 @@ class App extends Component {
   loadPlayers = () => {
     const url = `http://localhost:3010/positions/Rankings`
     axios.get(url).then((dbPlayers) => {
-      dbPlayers.data.rankings.sort(function(a, b){return a-b})
       // console.log((dbPlayers.data.rankings).slice(0,5))
       this.setState({
         players: dbPlayers.data.rankings.slice(0,20),
