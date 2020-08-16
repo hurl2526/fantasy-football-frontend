@@ -10,3 +10,17 @@ img {
   border: none;
   vertical-align: middle;
 }
+.body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.innerBody{
+  width:80%;
+  background-color:lightblue;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}

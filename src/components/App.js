@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 // import loadPlayers from '../data/data';
 import axios from 'axios';
-import Player from './Players';
+import Players from './Players';
 import News from './News';
+import Sidebar from './Sidebar'
+import Header from './Header'
+import "./App.css"
 // import Modal from './Modal';
 // import Placeholder from './Placeholder';
 
@@ -42,14 +45,21 @@ class App extends Component {
   };
   render() {
     return (
-      <div>
-        <div>
-          <News players={this.state.players} />
+      <>
+        <Header />
+        <div className = "body"
+        >
+          <div className="innerBody">
+            <div>
+              <News players={this.state.players}/>
+            </div>
+            <div style={{width:'100%',height:'60%'}}>
+              <Players players={this.state.players} />
+            </div>
+          </div>
+          <Sidebar style={{width:"30%"}} players={this.state.players}/>
         </div>
-        <div>
-          <Player players={this.state.players} />
-        </div>
-      </div>
+      </>
     );
   }
 }
