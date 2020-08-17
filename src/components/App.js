@@ -47,7 +47,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header />
+        {/* <Header /> */}
         <div className = "body"
         >
           <div className="innerBody">

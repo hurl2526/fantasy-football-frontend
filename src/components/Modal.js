@@ -16,7 +16,7 @@ function Modals(props) {
         Launch demo modal
       </Button>
 
-      <Modal show={show} onHide={handleClose} animation={false}>
+      <Modal show={show} onHide={handleClose} animation={true}>
         <Modal.Header closeButton>
           <Modal.Title>Christian McCaffrey</Modal.Title>
         </Modal.Header>

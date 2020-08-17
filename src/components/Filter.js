@@ -148,7 +148,7 @@ class SearchFilter extends Component {
   reRenderList() {
     var positions = [];
     var itemsToDisplay = [];
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < 30; i++) {
       itemsToDisplay.push(data[i]);
       data[i]["position"]
         .substring(0, data[i]["position"].length)

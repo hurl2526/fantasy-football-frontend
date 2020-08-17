@@ -2,6 +2,8 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
+import { Tooltip } from 'react';
+import { OverlayTrigger } from 'react';
 import './App.css';
 
 const SinglePlayer = (props) => {
@@ -10,15 +12,27 @@ const SinglePlayer = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // const renderTooltip = () => (
+  //   <Tooltip>
+  //     Click For More Info About This Player
+  //   </Tooltip>
+  // );
+
   const { displayName, overallRank, position, team, _id: id } = props.player;
   return (
     <>
-      <tr onClick={handleShow} key={id}>
+      {/* <OverlayTrigger
+    placement="right"
+    delay={{ show: 250, hide: 400 }}
+    overlay={renderTooltip}
+  > */}
+      <tr onClick={handleShow} key={id} >
         <td key={id}>{overallRank}</td>
         <td>{displayName}</td>
         <td>{position}</td>
         <td>{team}</td>
       </tr>
+      {/* </OverlayTrigger> */}
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
           <h4 className='modal-title passion'>

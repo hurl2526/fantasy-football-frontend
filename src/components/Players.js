@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Player(props) {
   return (
-    <div>
+    <div style={{width:'100%'}}>
       <Table striped bordered hover size='lg' style={{width:'100%'}}>
         <thead>
           <tr>
