@@ -5,6 +5,7 @@ import Players from './Players';
 import News from './News';
 import Sidebar from './Sidebar'
 import Header from './Header'
+import SearchFilter from './Filter';
 import "./App.css"
 // import Modal from './Modal';
 // import Placeholder from './Placeholder';
@@ -52,6 +53,9 @@ class App extends Component {
           <div className="innerBody">
             <div>
               <News players={this.state.players}/>
+            </div>
+            <div>
+              <SearchFilter players={this.state.players}/>
             </div>
             <div style={{width:'100%',height:'60%'}}>
               <Players players={this.state.players} />
