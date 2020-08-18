@@ -5,7 +5,8 @@ import Players from './Players';
 import News from './News';
 import Sidebar from './Sidebar'
 // import Header from './Header'
-import Table from './Table'
+import NewTable from './Table'
+import DataTablePage from './Table2'
 import SearchFilter from './Filter';
 import "./App.css"
 // import Modal from './Modal';
@@ -40,7 +41,7 @@ class App extends Component {
           players: dbPlayers.data.rankings.slice(0, 20),
         },
         () => {
-          console.log(this.state.players);
+          // console.log(this.state.players);
         }
       );
     });
@@ -53,7 +54,7 @@ class App extends Component {
         >
           <div className="innerBody">
           <div>
-              <Table players={this.state.players}/>
+              <DataTablePage players={this.state.players}/>
             </div>
             <div>
               <News players={this.state.players}/>

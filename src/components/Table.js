@@ -1,5 +1,5 @@
-import React from 'react';
-import SinglePlayer from './SinglePlayer'
+import React, { Component } from 'react';
+// import SinglePlayer from './SinglePlayer'
 import "./App.css"
 // import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,51 +14,59 @@ const Rankingseed = require('./RankingsF.json');
 //     "Team":`${player.team}`
 //   }
 // })
-const DatatablePage = (props) => {
+class NewTable extends Component{
+  state={
+    data : {
+      columns: [
+        {
+          label: 'Rank',
+          field: 'rank',
+          sort: 'asc',
+          width: 100
+        },
+        {
+          label: 'Name',
+          field: 'displayName',
+          sort: 'asc',
+          width: 150
+        },
+        {
+          label: 'Position',
+          field: 'position',
+          sort: 'asc',
+          width: 270
+        },
+        {
+          label: 'Team',
+          field: 'team',
+          sort: 'asc',
+          width: 200
+        }
+      ],
+      rows: []
+        
+    }
+  }
+DatatablePage = () => {
   let rowsData = []
-for (var index = 0; index < Rankingseed.length; index++) {
+for (let i = 0; i < Rankingseed.length; i++) {
     let rowItem = {}
-    rowItem["word"] = Rankingseed[index].word
+    rowItem["position"] = Rankingseed[i].position
+    rowItem["key"] = Rankingseed[i].playerId
 
-    rowItem["word"] =  <a href={`/item/${Rankingseed[index].pk}`}>
-                          {rowItem["word"]}
+    rowItem["position"] =  <a href={`/item/${Rankingseed[i].pk}`}>
+                          {rowItem["position"]}
                         </a>
     rowsData.push(rowItem)
 }
 this.setState({
-    tableRows: rowsData,
-});
-  const data = {
-    columns: [
-      {
-        label: 'Rank',
-        field: 'overallRank',
-        sort: 'asc',
-        width: 100
-      },
-      {
-        label: 'Name',
-        field: 'displayName',
-        sort: 'asc',
-        width: 150
-      },
-      {
-        label: 'Position',
-        field: 'position',
-        sort: 'asc',
-        width: 270
-      },
-      {
-        label: 'Team',
-        field: 'team',
-        sort: 'asc',
-        width: 200
-      }
-    ],
-    rows: Rankingseed
-      
-  };
+    
+    rows:rowsData
+},()=>{
+  console.log(this.state.data)})
 
+}
+  render(){
   return (
     <MDBDataTable
       scrollY
@@ -66,9 +74,11 @@ this.setState({
       striped
       bordered
       small
-      data={data}
+      data={this.state.data}
     />
-  );
+  )
+  }
 }
 
-export default DatatablePage;
+
+export default NewTable;
