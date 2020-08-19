@@ -1,17 +1,18 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import { useState } from 'react';
 // import { Tooltip } from 'react';
 // import { OverlayTrigger } from 'react';
 import './App.css';
 
-const SinglePlayer = (props) => {
+const QBPlayer = (props) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  
   // const renderTooltip = () => (
   //   <Tooltip>
   //     Click For More Info About This Player
@@ -27,7 +28,7 @@ const SinglePlayer = (props) => {
     overlay={renderTooltip}
   > */}
       <tr onClick={handleShow} key={id} >
-        <td key={id}>{overallRank}</td>
+        <td key={id}>{props.player.playerId}</td>
         <td>{displayName}</td>
         <td>{position}</td>
         <td>{team}</td>
@@ -45,7 +46,39 @@ const SinglePlayer = (props) => {
           {/* <Modal.Title>{displayName}</Modal.Title> */}
         </Modal.Header>
         <Modal.Body>
-          
+<h3>2019 Stats:
+<MDBTable>
+      <MDBTableHead>
+        <tr>
+          <th>Attempts</th>
+          <th>Completions</th>
+          <th>Passing Yrds</th>
+          <th>TDs</th>
+          <th>Fantasy Points</th>
+        </tr>
+      </MDBTableHead>
+      <MDBTableBody>
+        <tr>
+          <td>1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </MDBTableBody>
+    </MDBTable>
+</h3>
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>
@@ -74,4 +107,4 @@ const SinglePlayer = (props) => {
 //   ),
 // };
 
-export default SinglePlayer;
+export default QBPlayer;

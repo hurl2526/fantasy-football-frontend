@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Players from './Players';
 import News from './News';
-import Sidebar from './Sidebar'
+import Sidebar from './Sidebar';
 // import Header from './Header'
-import NewTable from './Table'
-import DataTablePage from './Table2'
-import SearchFilter from './Filter';
-import "./App.css"
+import DataTablePage from './Table2';
+import Voter from './Vote';
+import './App.css';
+// import Table1 from './Table1';
+// import NewTable from './Table'
 // import Modal from './Modal';
 // import Placeholder from './Placeholder';
 
@@ -19,16 +20,16 @@ class App extends Component {
     toggle: true,
     player: {},
   };
-  handleChange = (event) => {
-    this.setState(
-      {
-        searchTerm: event.target.value,
-      },
-      () => {
-        console.log(this.state.searchTerm);
-      }
-    );
-  };
+  // handleChange = (event) => {
+  //   this.setState(
+  //     {
+  //       searchTerm: event.target.value,
+  //     },
+  //     () => {
+  //       console.log(this.state.searchTerm);
+  //     }
+  //   );
+  // };
   async componentDidMount() {
     return await this.loadPlayers();
   }
@@ -38,7 +39,7 @@ class App extends Component {
       // console.log((dbPlayers.data.rankings).slice(0,5))
       this.setState(
         {
-          players: dbPlayers.data.rankings.slice(0, 20),
+          players: dbPlayers.data.rankings,
         },
         () => {
           // console.log(this.state.players);
@@ -46,27 +47,61 @@ class App extends Component {
       );
     });
   };
+  load = (x) => {
+    axios.get(`http://localhost:3010/positions/${x}`).then((dbPlayers) => {
+    // console.log(dbPlayers.data)
+    if(x==='QB'){
+      this.setState({
+        players: dbPlayers.data.qbs,
+        toggle: false,
+      })
+    }else if(x==='Rankings'){
+      this.setState({
+        players: dbPlayers.data.rankings,
+        toggle: false,
+      })
+    }else if(x==='RB'){
+      this.setState({
+        players: dbPlayers.data.rbs,
+        toggle: false,
+      })
+    }else if(x==='WR'){
+      this.setState({
+        players: dbPlayers.data.wrs,
+        toggle: false,
+      })
+    }else if(x==='TE'){
+      this.setState({
+        players: dbPlayers.data.tes,
+        toggle: false,
+      })
+    }
+    });
+  };
+  onUpdate = (x) => {
+    this.load(x);
+    // console.log(`update ${id}`)
+  };
   render() {
     return (
       <>
         {/* <Header /> */}
-        <div className = "body"
-        >
-          <div className="innerBody">
-          <div>
-              <DataTablePage players={this.state.players}/>
+        <div className='body'>
+          <div className='innerBody'>
+            <div>
+              <News players={this.state.players} />
             </div>
             <div>
-              <News players={this.state.players}/>
+              <DataTablePage players={this.state.players} />
+            </div>
+            <div style={{ width: '100%', height: '60%' }}>
+              <Players onUpdate={this.onUpdate} players={this.state.players} />
             </div>
             <div>
-              <SearchFilter players={this.state.players}/>
-            </div>
-            <div style={{width:'100%',height:'60%'}}>
-              <Players players={this.state.players} />
+              <Voter/>
             </div>
           </div>
-          <Sidebar style={{width:"30%"}} players={this.state.players}/>
+          <Sidebar style={{ width: '30%' }} players={this.state.players} />
         </div>
       </>
     );

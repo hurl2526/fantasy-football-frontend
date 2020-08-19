@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import data from "../data/data";
 import "./App.css"
 
-class SearchFilter extends Component {
+class Table1 extends Component {
   state = {
     itemsToDisplay: [],
     itemsToUse: [],
@@ -170,4 +170,4 @@ class SearchFilter extends Component {
   }
 }
 
-export default SearchFilter;
+export default Table1;

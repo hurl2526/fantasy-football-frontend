@@ -1,3 +1,8 @@
+// import React from 'react'
+// import SinglePlayer from '../components/SinglePlayer'
+const handleClick = ()=>{
+  console.log('hello')
+}
 let players = [
   {
   "playerId": "3379",
@@ -10,7 +15,8 @@ let players = [
   "standDev": "0.218",
   "nerdRank": "1.061",
   "positionRank": "1",
-  "overallRank": 1
+  "overallRank": 1,
+  "clickEvent": () => handleClick()
   },
   {
   "playerId": "3582",
