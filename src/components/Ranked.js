@@ -1,5 +1,5 @@
 import React from 'react';
-import SinglePlayer from './SinglePlayer';
+import OverallPlayer from './OverallPlayer';
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -21,7 +21,7 @@ function Ranked(props) {
           })
           .slice(0, 300)
           .map((player) => {
-            return <SinglePlayer key={player._id} player={player} />;
+            return <OverallPlayer key={player._id} player={player} />;
           })}
       </tbody>
     </Table>

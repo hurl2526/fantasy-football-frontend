@@ -1,6 +1,7 @@
 import React from 'react';
-import SinglePlayer from './SinglePlayer'
+import OverallPlayer from './OverallPlayer'
 import QBPlayer from './QBPlayer'
+import RBPlayer from './RBPlayer'
 import Button from './Button';
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -67,12 +68,16 @@ export default function Player(props) {
             .slice(0, 300).map((player) => {
               if(player.overallRank){
               return (
-                <SinglePlayer key={player._id} player={player}/>
+                <OverallPlayer key={player._id} player={player}/>
               );
               }
-              else{
+              else if(player.completions){
                 return(
                   <QBPlayer key={player._id} player={player}/> 
+                )
+              }else if(player.recTD){
+                return(
+                  <RBPlayer key={player._id} player={player}/> 
                 )
               }
             })}

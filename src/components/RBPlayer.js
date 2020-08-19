@@ -7,7 +7,7 @@ import { useState } from 'react';
 // import { OverlayTrigger } from 'react';
 import './App.css';
 
-const QBPlayer = (props) => {
+const RBPlayer = (props) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -34,7 +34,7 @@ const QBPlayer = (props) => {
         <td>{team}</td>
       </tr>
       {/* </OverlayTrigger> */}
-      <Modal show={show} onHide={handleClose} animation={false}>
+      <Modal size="lg" show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
           <h4 className='modal-title passion'>
             <img id='pcTeamImg' src={`/images/teams/${team}.png`} alt='...' />
@@ -46,29 +46,33 @@ const QBPlayer = (props) => {
           {/* <Modal.Title>{displayName}</Modal.Title> */}
         </Modal.Header>
         <Modal.Body>
-          <h3>
-            2019 Stats:
-          </h3>
-            <MDBTable striped bordered hover size='sm'>
-              <MDBTableHead>
-                <tr>
-                  <th>Attempts</th>
-                  <th>Completions</th>
-                  <th>Passing Yrds</th>
-                  <th>TDs</th>
-                  <th>Fantasy Points</th>
-                </tr>
-              </MDBTableHead>
-              <MDBTableBody>
-                <tr>
-                  <td>{props.player.attempts}</td>
-                  <td>{props.player.completions}</td>
-                  <td>{props.player.passingYards}</td>
-                  <td>{props.player.passingTD}</td>
-                  <td>{props.player.fantasyPoints}</td>
-                </tr>
-              </MDBTableBody>
-            </MDBTable>
+          <h3>2019 Stats:</h3>
+          <MDBTable striped bordered hover size='sm'>
+            <MDBTableHead>
+              <tr>
+                <th>RushAtt</th>
+                <th>RushYrds</th>
+                <th>RushTDs</th>
+                <th>Receptions</th>
+                <th>RecYrds</th>
+                <th>RecTDs</th>
+
+                <th>Fantasy Points</th>
+              </tr>
+            </MDBTableHead>
+            <MDBTableBody>
+              <tr>
+                <td>{props.player.rushAtt}</td>
+                <td>{props.player.rushYards}</td>
+                <td>{props.player.rushTD}</td>
+                <td>{props.player.rec}</td>
+                <td>{props.player.recYards}</td>
+                <td>{props.player.recTD}</td>
+
+                <td>{props.player.fantasyPoints}</td>
+              </tr>
+            </MDBTableBody>
+          </MDBTable>
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>
@@ -97,4 +101,4 @@ const QBPlayer = (props) => {
 //   ),
 // };
 
-export default QBPlayer;
+export default RBPlayer;

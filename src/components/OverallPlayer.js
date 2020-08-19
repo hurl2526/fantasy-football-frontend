@@ -2,11 +2,12 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
+import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 // import { Tooltip } from 'react';
 // import { OverlayTrigger } from 'react';
 import './App.css';
 
-const SinglePlayer = (props) => {
+const OverallPlayer = (props) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -45,7 +46,27 @@ const SinglePlayer = (props) => {
           {/* <Modal.Title>{displayName}</Modal.Title> */}
         </Modal.Header>
         <Modal.Body>
-          
+        <h3>
+            2019 Stats:
+          </h3>
+            <MDBTable striped bordered hover size='sm'>
+              <MDBTableHead>
+                <tr>
+                  <th>OverallRank</th>
+                  <th>NerdRank</th>
+                  <th>PositionRank</th>
+                  <th>StandDev</th>
+                </tr>
+              </MDBTableHead>
+              <MDBTableBody>
+                <tr>
+                  <td>{overallRank}</td>
+                  <td>{props.player.nerdRank}</td>
+                  <td>{props.player.positionRank}</td>
+                  <td>{props.player.standDev}</td>
+                </tr>
+              </MDBTableBody>
+            </MDBTable>
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleClose}>
@@ -74,4 +95,4 @@ const SinglePlayer = (props) => {
 //   ),
 // };
 
-export default SinglePlayer;
+export default OverallPlayer;
