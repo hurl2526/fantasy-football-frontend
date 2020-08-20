@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 let styles = {
-  backgroundColor:'orange',
+  backgroundColor:'none',
     margin: 'auto',
     width: '70%',
   };
@@ -17,14 +17,16 @@ let styles = {
   componentDidMount() {
     setTimeout(() => {
       const newList = [];
-      fetch('https://jsonplaceholder.typicode.com/albums/1/photos')
+      fetch('http://newsapi.org/v2/everything?' +
+      'q=fantasy AND football AND NFL&' +
+      'apiKey=be6cc06bb955445c802c28ba768f9d57')
         .then((data) => data.json())
         .then((data) => {
           for (let i = 0; i < 10; i++) {
             newList.push({
-              title: data[i].title,
-              url: data[i].url,
-              image: data[i].thumbnailUrl,
+              title: data.articles[i].title,
+              url: data.articles[i].url,
+              image: data.articles[i].urlToImage,
             });
           }
           this.setState({
@@ -41,7 +43,7 @@ let styles = {
                 return (
                   <div key={idx} style={{height:'300px', width:'100%'}} >
                     <img src={item.image} alt='...'  />
-                    <p className="legend">{item.title}</p>
+                    <p className="legend"><a href={item.url}>{item.title}</a></p>
                   </div>
                 );
               })}

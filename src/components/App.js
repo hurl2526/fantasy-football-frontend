@@ -108,7 +108,7 @@ class App extends Component {
         <div className='body'>
           <div className='innerBody'>
             <div>
-              <News players={this.state.players} />
+              <News />
             </div>
             <div>
               <DataTablePage players={this.state.players} />
