@@ -5,6 +5,7 @@ import News from './News';
 import Sidebar from './Sidebar';
 import DataTablePage from './Table2';
 import Voter from './Vote';
+import Toast from 'light-toast'
 // import Header from './Header'
 import './App.css';
 // import players from '../data/data';
@@ -87,10 +88,15 @@ class App extends Component {
   };
 
   onChange = (x,y) => {
+    let newTeam = [...this.state.team]
+    if(newTeam.includes(`${x} ${y}`)){
+      Toast.info('This Player Is Already On Your Team')
+  }else {
     let newTeam = [...this.state.team, `${x} ${y}`]
     this.setState({
       team: newTeam
     })
+  }
 
     // console.log(`update ${id}`)
   };

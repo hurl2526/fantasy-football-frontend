@@ -75,7 +75,7 @@ export default function Player(props) {
                 return(
                   <QBPlayer key={player._id} player={player} onChange={props.onChange}/> 
                 )
-              }else if(player.recTD){
+              }else{
                 return(
                   <RBPlayer key={player._id} player={player} onChange={props.onChange}/> 
                 )
