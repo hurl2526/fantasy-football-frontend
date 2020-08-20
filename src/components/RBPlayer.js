@@ -19,7 +19,7 @@ const RBPlayer = (props) => {
   //   </Tooltip>
   // );
 
-  const { displayName, overallRank, position, team, _id: id } = props.player;
+  const { displayName, position, team, _id: id } = props.player;
   return (
     <>
       {/* <OverlayTrigger
@@ -78,7 +78,10 @@ const RBPlayer = (props) => {
           <Button variant='secondary' onClick={handleClose}>
             Close
           </Button>
-          <Button variant='primary' onClick={handleClose}>
+          <Button variant='primary' onClick={() => {
+            props.onChange(position,displayName)
+            handleClose();
+          }}>
             Add to Team
           </Button>
         </Modal.Footer>

@@ -8,6 +8,7 @@ import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import './App.css';
 
 const OverallPlayer = (props) => {
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -72,7 +73,10 @@ const OverallPlayer = (props) => {
           <Button variant='secondary' onClick={handleClose}>
             Close
           </Button>
-          <Button variant='primary' onClick={handleClose}>
+          <Button variant='primary' onClick={() => {
+            props.onChange(position, displayName)
+            handleClose();
+          }}>
             Add to Team
           </Button>
         </Modal.Footer>

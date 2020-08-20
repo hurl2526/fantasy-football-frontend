@@ -17,11 +17,7 @@ class Voter extends Component{
 	vote (i) {
 		let newLanguages = [...this.state.languages];
 		newLanguages[i].votes++;
-		function swap(array, i, j) {
-			const temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-		}
+
 		this.setState({languages: newLanguages});
 		
 	}

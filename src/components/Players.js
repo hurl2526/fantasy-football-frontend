@@ -68,16 +68,16 @@ export default function Player(props) {
             .slice(0, 300).map((player) => {
               if(player.overallRank){
               return (
-                <OverallPlayer key={player._id} player={player}/>
+                <OverallPlayer key={player._id} player={player} onChange={props.onChange}/>
               );
               }
               else if(player.completions){
                 return(
-                  <QBPlayer key={player._id} player={player}/> 
+                  <QBPlayer key={player._id} player={player} onChange={props.onChange}/> 
                 )
               }else if(player.recTD){
                 return(
-                  <RBPlayer key={player._id} player={player}/> 
+                  <RBPlayer key={player._id} player={player} onChange={props.onChange}/> 
                 )
               }
             })}

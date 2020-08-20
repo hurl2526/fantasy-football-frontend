@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-// import loadPlayers from '../data/data';
 import axios from 'axios';
 import Players from './Players';
 import News from './News';
 import Sidebar from './Sidebar';
-// import Header from './Header'
 import DataTablePage from './Table2';
 import Voter from './Vote';
+// import Header from './Header'
 import './App.css';
+// import players from '../data/data';
+// import loadPlayers from '../data/data';
 // import Table1 from './Table1';
 // import NewTable from './Table'
 // import Modal from './Modal';
@@ -16,6 +17,7 @@ import './App.css';
 class App extends Component {
   state = {
     players: [],
+    team:[],
     searchTerm: '',
     toggle: true,
     player: {},
@@ -79,9 +81,20 @@ class App extends Component {
     });
   };
   onUpdate = (x) => {
+    
     this.load(x);
     // console.log(`update ${id}`)
   };
+
+  onChange = (x,y) => {
+    let newTeam = [...this.state.team, `${x} ${y}`]
+    this.setState({
+      team: newTeam
+    })
+
+    // console.log(`update ${id}`)
+  };
+
   render() {
     return (
       <>
@@ -95,13 +108,13 @@ class App extends Component {
               <DataTablePage players={this.state.players} />
             </div>
             <div style={{ width: '100%', height: '60%' }}>
-              <Players onUpdate={this.onUpdate} players={this.state.players} />
+              <Players onChange={this.onChange} onUpdate={this.onUpdate} players={this.state.players} />
             </div>
             <div>
               <Voter/>
             </div>
           </div>
-          <Sidebar style={{ width: '30%' }} players={this.state.players} />
+          <Sidebar  style={{ width: '30%' }} players={this.state.players} team={this.state.team}/>
         </div>
       </>
     );
