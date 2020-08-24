@@ -6,7 +6,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 let styles = {
   backgroundColor:'none',
     margin: 'auto',
-    width: '70%',
+    width: '50%',
+    height:'100%'
   };
 
   class News extends Component {
@@ -42,7 +43,7 @@ let styles = {
     {this.state.list.map((item, idx) => {
                 return (
                   <div key={idx} style={{height:'300px', width:'100%'}} >
-                    <img src={item.image} alt='...'  />
+                    <img src={item.image} alt='...' style={{height:'130%'}} />
                     <p className="legend"><a href={item.url}>{item.title}</a></p>
                   </div>
                 );

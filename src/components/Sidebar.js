@@ -3,7 +3,7 @@ import TeamMember from './TeamMember'
 
 const Sidebar = (props)=>{
   return(
-    <div style={{width: '20%', height:"90vh", backgroundColor:'yellow'}}>
+    <div style={{width: '100%', height:"100vh", backgroundColor:'yellow', textAlign:'center'}}>
       <ul style={{listStyle:"none"}}>
       <h3>My Team</h3>
         {props.team.map((player)=>{
