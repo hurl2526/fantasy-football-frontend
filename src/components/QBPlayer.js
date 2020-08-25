@@ -37,11 +37,11 @@ const QBPlayer = (props) => {
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
           <h4 className='modal-title passion'>
-            <img id='pcTeamImg' src={`/images/teams/${team}.png`} alt='...' />
+            <img style={{height:'55px', width:"55px"}} id='pcTeamImg' src={`/images/teams/${team}.jpeg`} alt='...' />
             <span id='pcPlayerName'>{displayName}</span>
-            "-"
+            -
             <span id='pcPlayerPos'>{position}</span>
-            ", "<span id='pcPlayerTeam'>{team}</span>
+            , <span id='pcPlayerTeam'>{team}</span>
           </h4>
           {/* <Modal.Title>{displayName}</Modal.Title> */}
         </Modal.Header>

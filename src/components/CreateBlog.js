@@ -47,7 +47,7 @@ class CreateBlog extends Component {
 
   render() {
     return (
-      <div style={{ paddingLeft: '30px', width: '100%' }}>
+      <div style={{ paddingLeft: '60px', width: '100%' }}>
         <h2>Who Should I Draft?: </h2>
         <form onSubmit={this.handleSubmit} className='ui form'>
           <div

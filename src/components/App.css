@@ -1,9 +1,17 @@
 .passion {
-  font-family: passion-one,cursive;
+  font-family: passion-one, cursive;
 }
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
+}
+.bgImage {
+  background-image: url('../feild3.jpg');
+  background-size: cover;
+}
+.listItem{
+  font-weight: 900;
+  
 }
 
 img {
@@ -17,31 +25,30 @@ img {
   flex-direction: column;
 }
 .body2 {
-  width:70%;
+  width: 70%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
 }
-.innerBody{
-  width:100%;
-  background-color:lightblue;
+.innerBody {
+  width: 100%;
+  background-color: lightblue;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
 }
-.bottom{
-  width:100%;
-  background-color:pink;
+.bottom {
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
 }
-.bLeft{
-  width:100%;
-  background-color:pink;
+.bLeft {
+  width: 100%;
+  background-color: pink;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -135,11 +142,11 @@ table.dataTable thead .sorting_desc:after,
 table.dataTable thead .sorting_desc:before,
 table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
-bottom: .5em; color: rgb(212, 143, 59);
+  bottom: 0.5em;
+  color: rgb(212, 143, 59);
 }
 
-
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -147,7 +154,7 @@ bottom: .5em; color: rgb(212, 143, 59);
 body {
   text-align: center;
   color: #222;
-  font-size: 24px; 
+  font-size: 24px;
   font-family: sans-serif;
 }
 
@@ -193,7 +200,7 @@ h1 {
 .modal {
   width: 90vw;
   max-width: 90vw;
-} 
-.dataStuff{
+}
+.dataStuff {
   color: aquamarine;
 }

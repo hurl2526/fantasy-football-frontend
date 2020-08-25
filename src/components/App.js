@@ -5,11 +5,10 @@ import News from './News';
 import Sidebar from './Sidebar';
 import DataTablePage from './Table2';
 import Voter from './Vote';
-// import Blog from './Blog';
 import Toast from 'light-toast';
 import CreateBlog from './CreateBlog';
 import Blogs from './Blogs';
-// import Header from './Header'
+import Header from './Header'
 import './App.css';
 
 // import players from '../data/data';
@@ -18,6 +17,7 @@ import './App.css';
 // import NewTable from './Table'
 // import Modal from './Modal';
 // import Placeholder from './Placeholder';
+ 
 
 class App extends Component {
   state = {
@@ -26,7 +26,7 @@ class App extends Component {
     searchTerm: '',
     toggle: true,
     player: {},
-    blogs: [],
+    blogs: [{name: "Patrick Mahomes", round: '2nd',name2:"Matt Ryan", round2:'4th'},{name: "Joe Mixon", round: '3rd',name2:"Adrian Peterson", round2:'10th'}],
     blog: {},
   };
   // handleChange = (event) => {
@@ -62,6 +62,9 @@ class App extends Component {
       // console.log(dbPlayers.data)
       if (x === 'QB') {
         this.setState({
+          // players: `${dbPlayers.data.${x}}`
+          // players: `dbPlayers.data.${x}`
+          // players: dbPlayers.data[0]
           players: dbPlayers.data.qbs,
           toggle: false,
         });
@@ -137,13 +140,13 @@ class App extends Component {
   render() {
     return (
       <>
-        {/* <Header /> */}
+        <Header />
         <div className='body'>
           <div style={{ height: '30%' }}>
             <News />
           </div>
           <div className='innerBody' style={{ height: '40%' }}>
-            <div className='body2' style={{ width: '80%' }}>
+            <div className='body2' style={{ width: '70%' }}>
               <div style={{ width: '100%' }}>
                 <DataTablePage
                   className='dataStuff'
@@ -158,16 +161,16 @@ class App extends Component {
                 />
               </div>
             </div>
-            <div style={{ width: '20%', height: '100%' }}>
+            <div className='bgImage' style={{ width: '30%', height: '100%'}}>
               <Sidebar players={this.state.players} team={this.state.team} />
             </div>
           </div>
           <div className='bottom' style={{ height: '20%' }}>
             <div
               className='bLeft'
-              style={{ backgroundColor: 'green', width: '80%' }}
+              style={{ backgroundColor: 'green', width: '70%' }}
             >
-              <div style={{ width: '50%' }}>
+              <div style={{ width: '50%', height:'100%' }}>
                 <hr
                   style={{
                     width: '50%',
@@ -190,8 +193,8 @@ class App extends Component {
             <div
               style={{
                 backgroundColor: 'brown',
-                width: '20%',
-                rightMargin: '5px',
+                width: '30%',
+                height:'624px',
               }}
             >
               <Voter />

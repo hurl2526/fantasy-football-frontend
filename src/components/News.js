@@ -23,7 +23,7 @@ let styles = {
       'apiKey=be6cc06bb955445c802c28ba768f9d57')
         .then((data) => data.json())
         .then((data) => {
-          for (let i = 0; i < 10; i++) {
+          for (let i = 1; i < 11; i++) {
             newList.push({
               title: data.articles[i].title,
               url: data.articles[i].url,

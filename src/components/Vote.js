@@ -25,7 +25,7 @@ class Voter extends Component{
 	render(){
 		return(
 			<>
-				<h1>Vote For the Best QB in the League!</h1>
+				<h1 style={{marginTop:'10px'}}>Best QB in the League?</h1>
 				<div className="languages">
 					{
 						this.state.languages.map((lang, i) => 
