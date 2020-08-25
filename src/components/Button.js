@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({className,onClick,type,children}) => {
+const Button = ({ className, onClick, type, children }) => {
   // console.log("props",children)
   return (
-      <button 
+    <button
       type={type}
-        className={className}
-        style={{ margin: '10px 15px' }}
-        onClick={onClick}
-      >
-        {children}
-      </button>
+      className={className}
+      style={{ margin: '10px 15px' }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 };
 Button.propType = {
   className: PropTypes.string,
   type: PropTypes.string,
-  onClick:PropTypes.func,
+  onClick: PropTypes.func,
   children: PropTypes.node,
 };
 

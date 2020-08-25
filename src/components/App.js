@@ -3,12 +3,13 @@ import axios from 'axios';
 import Players from './Players';
 import News from './News';
 import Sidebar from './Sidebar';
-import DataTablePage from './Table2';
+import DataTablePage from './TableUsing';
 import Voter from './Vote';
 import Toast from 'light-toast';
 import CreateBlog from './CreateBlog';
 import Blogs from './Blogs';
-import Header from './Header'
+import Header from './Header';
+import PropTypes from 'prop-types';
 import './App.css';
 
 // import players from '../data/data';
@@ -17,7 +18,6 @@ import './App.css';
 // import NewTable from './Table'
 // import Modal from './Modal';
 // import Placeholder from './Placeholder';
- 
 
 class App extends Component {
   state = {
@@ -26,22 +26,24 @@ class App extends Component {
     searchTerm: '',
     toggle: true,
     player: {},
-    blogs: [{name: "Patrick Mahomes", round: '2nd',name2:"Matt Ryan", round2:'4th'},{name: "Joe Mixon", round: '3rd',name2:"Adrian Peterson", round2:'10th'}],
+    blogs: [
+      {
+        name: 'Patrick Mahomes',
+        round: '2nd',
+        name2: 'Matt Ryan',
+        round2: '4th',
+      },
+      {
+        name: 'Joe Mixon',
+        round: '3rd',
+        name2: 'Adrian Peterson',
+        round2: '10th',
+      },
+    ],
     blog: {},
   };
-  // handleChange = (event) => {
-  //   this.setState(
-  //     {
-  //       searchTerm: event.target.value,
-  //     },
-  //     () => {
-  //       console.log(this.state.searchTerm);
-  //     }
-  //   );
-  // };
   async componentDidMount() {
-    return await this.loadPlayers() && this.loadBlogs();
-    
+    return (await this.loadPlayers()) && this.loadBlogs();
   }
   loadPlayers = () => {
     const url = `http://localhost:3010/positions/Rankings`;
@@ -131,10 +133,6 @@ class App extends Component {
       .then(() => {
         this.loadBlogs();
       });
-    // let updatedBlogs = [blog,...this.state.blogs];
-    // this.setState({
-    //   blogs: updatedBlogs
-    // })
   };
 
   render() {
@@ -161,7 +159,7 @@ class App extends Component {
                 />
               </div>
             </div>
-            <div className='bgImage' style={{ width: '30%', height: '100%'}}>
+            <div className='bgImage' style={{ width: '30%', height: '100%' }}>
               <Sidebar players={this.state.players} team={this.state.team} />
             </div>
           </div>
@@ -170,7 +168,7 @@ class App extends Component {
               className='bLeft'
               style={{ backgroundColor: 'green', width: '70%' }}
             >
-              <div style={{ width: '50%', height:'100%' }}>
+              <div style={{ width: '50%', height: '100%' }}>
                 <hr
                   style={{
                     width: '50%',
@@ -194,7 +192,7 @@ class App extends Component {
               style={{
                 backgroundColor: 'brown',
                 width: '30%',
-                height:'624px',
+                height: '535px',
               }}
             >
               <Voter />

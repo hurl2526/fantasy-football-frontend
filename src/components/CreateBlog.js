@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 
 class CreateBlog extends Component {
   constructor() {
@@ -18,12 +18,10 @@ class CreateBlog extends Component {
     // if(event.target.name ==='author')
     let updatedBlog = { ...this.state.blog };
     updatedBlog[event.target.name] = event.target.value;
-    
-    this.setState(
-      {
-        blog: updatedBlog,
-      }
-    );
+
+    this.setState({
+      blog: updatedBlog,
+    });
   };
 
   handleSubmit = (event) => {
@@ -35,7 +33,7 @@ class CreateBlog extends Component {
       round2: '',
     };
     // console.log(this.state.blog)
-    this.props.handleBlogSubmit(event,this.state.blog);
+    this.props.handleBlogSubmit(event, this.state.blog);
 
     this.setState(
       {
@@ -107,7 +105,7 @@ class CreateBlog extends Component {
             </div>
           </div>
           <div className='field'>
-            <button type='submit' className='ui button green'>
+            <button type='submit' className='ui button blue'>
               Submit
             </button>
           </div>
@@ -116,6 +114,5 @@ class CreateBlog extends Component {
     );
   }
 }
-
 
 export default CreateBlog;

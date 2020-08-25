@@ -1,10 +1,9 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import { useState } from 'react';
-// import { Tooltip } from 'react';
-// import { OverlayTrigger } from 'react';
 import './App.css';
 
 const RBPlayer = (props) => {
@@ -12,38 +11,28 @@ const RBPlayer = (props) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  // const renderTooltip = () => (
-  //   <Tooltip>
-  //     Click For More Info About This Player
-  //   </Tooltip>
-  // );
-
   const { displayName, position, team, _id: id } = props.player;
   return (
     <>
-      {/* <OverlayTrigger
-    placement="right"
-    delay={{ show: 250, hide: 400 }}
-    overlay={renderTooltip}
-  > */}
       <tr onClick={handleShow} key={id}>
         <td key={id}>{props.player.playerId}</td>
         <td>{displayName}</td>
         <td>{position}</td>
         <td>{team}</td>
       </tr>
-      {/* </OverlayTrigger> */}
-      <Modal size="lg" show={show} onHide={handleClose} animation={false}>
+      <Modal size='lg' show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
           <h4 className='modal-title passion'>
-            <img style={{height:'55px', width:"55px"}} id='pcTeamImg' src={`/images/teams/${team}.jpeg`} alt='...' />
-            <span id='pcPlayerName'>{displayName}</span>
-            -
-            <span id='pcPlayerPos'>{position}</span>
-            , <span id='pcPlayerTeam'>{team}</span>
+            <img
+              style={{ height: '55px', width: '55px' }}
+              id='pcTeamImg'
+              src={`/images/teams/${team}.jpeg`}
+              alt='...'
+            />
+            <span id='pcPlayerName'>{displayName}</span>-
+            <span id='pcPlayerPos'>{position}</span>,{' '}
+            <span id='pcPlayerTeam'>{team}</span>
           </h4>
-          {/* <Modal.Title>{displayName}</Modal.Title> */}
         </Modal.Header>
         <Modal.Body>
           <h3>2019 Stats:</h3>
@@ -78,10 +67,13 @@ const RBPlayer = (props) => {
           <Button variant='secondary' onClick={handleClose}>
             Close
           </Button>
-          <Button variant='primary' onClick={() => {
-            props.onChange(position,displayName)
-            handleClose();
-          }}>
+          <Button
+            variant='primary'
+            onClick={() => {
+              props.onChange(position, displayName);
+              handleClose();
+            }}
+          >
             Add to Team
           </Button>
         </Modal.Footer>
@@ -90,18 +82,16 @@ const RBPlayer = (props) => {
   );
 };
 
-// BlogItem.propType = {
-//   onDelete: PropTypes.func,
-//   onUpdate: PropTypes.func,
-//   blog: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       title: PropTypes.string,
-//       author: PropTypes.string,
-//       subject: PropTypes.string,
-//       article: PropTypes.string,
-//       _id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-//     })
-//   ),
-// };
+RBPlayer.propType = {
+  blog: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      round: PropTypes.string,
+      name2: PropTypes.string,
+      round2: PropTypes.string,
+      _id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    })
+  ),
+};
 
 export default RBPlayer;

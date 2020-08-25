@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
 // import Article from './Article'
 import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import PropTypes from 'prop-types';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 let styles = {
-  backgroundColor:'none',
-    margin: 'auto',
-    width: '50%',
-    height:'100%'
-  };
+  backgroundColor: 'none',
+  margin: 'auto',
+  width: '50%',
+  height: '100%',
+};
 
-  class News extends Component {
-    state = {
-      list: [],
-      toggle: true,
-    };
+class News extends Component {
+  state = {
+    list: [],
+    toggle: true,
+  };
   componentDidMount() {
     setTimeout(() => {
       const newList = [];
-      fetch('http://newsapi.org/v2/everything?' +
-      'q=fantasy AND football AND NFL&' +
-      'apiKey=be6cc06bb955445c802c28ba768f9d57')
+      fetch(
+        'http://newsapi.org/v2/everything?' +
+          'q=fantasy AND football AND NFL&' +
+          'apiKey=be6cc06bb955445c802c28ba768f9d57'
+      )
         .then((data) => data.json())
         .then((data) => {
           for (let i = 1; i < 11; i++) {
@@ -35,22 +38,25 @@ let styles = {
           });
         });
     }, 1000);
-  };
-  render(){
-  return (
-	<div style={styles}>
-		<Carousel >
-    {this.state.list.map((item, idx) => {
-                return (
-                  <div key={idx} style={{height:'300px', width:'100%'}} >
-                    <img src={item.image} alt='...' style={{height:'130%'}} />
-                    <p className="legend"><a href={item.url}>{item.title}</a></p>
-                  </div>
-                );
-              })}
-		</Carousel>
-	</div>
-  );
-}}
+  }
+  render() {
+    return (
+      <div style={styles}>
+        <Carousel>
+          {this.state.list.map((item, idx) => {
+            return (
+              <div key={idx} style={{ height: '300px', width: '100%' }}>
+                <img src={item.image} alt='...' style={{ height: '130%' }} />
+                <p className='legend'>
+                  <a href={item.url}>{item.title}</a>
+                </p>
+              </div>
+            );
+          })}
+        </Carousel>
+      </div>
+    );
+  }
+}
 
 export default News;

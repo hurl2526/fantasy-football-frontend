@@ -3,7 +3,7 @@ import Button from './Button';
 import PropTypes from 'prop-types';
 
 const BlogItem = (props) => {
-  const { name, round, name2, round2, } = props.blog;
+  const { name, round, name2, round2 } = props.blog;
   return (
     <div
       //key={blog.objectId} if not destructuring
@@ -12,7 +12,6 @@ const BlogItem = (props) => {
     >
       <div className='content'>
         <div className='header'>Player1: {name}</div>
-        <br />
         <div className='meta'>Round: {round}</div>
         <br />
         <div className='header'>Player2: {name2}</div>
